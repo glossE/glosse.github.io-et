@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses Home</title>
+</head>
+<body>
+    <h1>Expenses Home</h1>
+    <table>
+        <tr>
+            <th>Party Name</th>
+            <th>Name</th>
+            <th>Total Amount</th>
+            <th>Delete</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>
+                <form method="POST" action="/delete_expense">
+                    <input type="hidden" name="party_name" value="{{ row[0] }}">
+                    <input type="hidden" name="name" value="{{ row[1] }}">
+                    <input type="hidden" name="expense_id" value="{{ row[3] }}"> <!-- add this line -->
+                    <input type="submit" value="Delete">
+                </form>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/add_expense">Add Expense</a>
+</body>
+</html>

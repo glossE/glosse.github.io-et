@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add an Expense</title>
+</head>
+<body>
+    <h1>Add an Expense</h1>
+  
+    
+   <form action="{{ url_for('submit_expense') }}" method="POST">
+    <label for="party_name">Party Name:</label>
+    <input type="text" id="party_name" name="party_name" required>
+    <br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" min="0" step="0.01" required>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
